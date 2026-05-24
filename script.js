@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (reveals.length) {
     const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Staggered delay for sibling elements
           const siblings = entry.target.parentElement?.querySelectorAll('.reveal:not(.active)');
           let delay = 0;
           if (siblings) {
@@ -36,29 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ======= NAV SCROLL SHADOW =======
+  // ======= NAV SCROLL SHADOW (via CSS class) =======
   const nav = document.querySelector('.nav');
   if (nav) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.boxShadow = '0 4px 40px rgba(0,0,0,0.5)';
-      } else {
-        nav.style.boxShadow = 'none';
-      }
-    });
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
   }
 
-  // ======= MOCKUP TYPING EFFECT =======
+  // ======= MOCKUP TYPING EFFECT (requestAnimationFrame) =======
   const mkHeadline = document.querySelector('.mk-headline');
   const mkSubs = document.querySelectorAll('.mk-sub');
+
   if (mkHeadline) {
-    let width = 0;
-    const grow = setInterval(() => {
-      width += 2;
-      mkHeadline.style.width = width + '%';
-      if (width >= 100) clearInterval(grow);
-    }, 20);
+    const duration = 1000;
+    const start = performance.now();
+    const grow = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      mkHeadline.style.width = (progress * 100) + '%';
+      if (progress < 1) requestAnimationFrame(grow);
+    };
+    requestAnimationFrame(grow);
   }
+
   if (mkSubs.length) {
     setTimeout(() => {
       mkSubs.forEach((el, i) => {

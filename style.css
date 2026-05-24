@@ -25,7 +25,7 @@ html {
 body {
   background: var(--preto);
   color: var(--branco);
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -141,7 +141,7 @@ em { font-style: italic; color: var(--laranja); }
   position: absolute;
   bottom: -20px;
   right: -20px;
-  font-family: 'roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(100px, 20vw, 260px);
   color: rgba(255, 122, 0, 0.04);
   letter-spacing: -0.02em;
@@ -183,7 +183,7 @@ em { font-style: italic; color: var(--laranja); }
 }
 
 .hero h1 {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.0;
   letter-spacing: 0.01em;
@@ -269,7 +269,7 @@ em { font-style: italic; color: var(--laranja); }
 }
 
 .stat strong {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.6rem;
   color: var(--laranja);
   letter-spacing: 0.03em;
@@ -491,7 +491,7 @@ section { padding: 100px 40px; }
 }
 
 .section-header h2 {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -538,7 +538,7 @@ section { padding: 100px 40px; }
 }
 
 .problem-left h2, .problem-right h2 {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(2rem, 3vw, 2.8rem);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -597,7 +597,7 @@ section { padding: 100px 40px; }
 }
 
 .servico-num {
-  font-family: 'roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 4.5rem;
   color: rgba(255,122,0,0.1);
   line-height: 1;
@@ -606,7 +606,7 @@ section { padding: 100px 40px; }
 }
 
 .servico-card h3 {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -687,7 +687,7 @@ section { padding: 100px 40px; }
 .step:hover { border-color: var(--borda); }
 
 .step-num {
-  font-family: 'roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 3rem;
   color: var(--laranja);
   line-height: 1;
@@ -815,7 +815,7 @@ section { padding: 100px 40px; }
   bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(80px, 15vw, 220px);
   color: rgba(255,122,0,0.04);
   white-space: nowrap;
@@ -830,7 +830,7 @@ section { padding: 100px 40px; }
 }
 
 .cta-inner h2 {
-  font-family: 'roboto', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -935,4 +935,36 @@ footer {
   .hero-actions { flex-direction: column; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
   .hero-stats { flex-wrap: wrap; }
+}
+
+/* ======= NAV SCROLLED ======= */
+.nav.scrolled {
+  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+}
+
+/* ======= FOCUS VISIBLE ======= */
+:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ======= REDUCED MOTION ======= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-nav {
+    opacity: 1;
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
