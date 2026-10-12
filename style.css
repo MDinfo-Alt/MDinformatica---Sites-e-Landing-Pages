@@ -845,8 +845,8 @@ section { padding: 100px 40px; scroll-margin-top: 112px; }
 .project-fhs .device-screen { background: #071326; }
 
 .project-guitar .device-screen img {
-  object-fit: cover;
-  object-position: center 22%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .device-phone {
@@ -1088,6 +1088,10 @@ footer {
   .servicos-grid,
   .projetos-grid { grid-template-columns: 1fr; }
 
+  .device-preview { height: clamp(170px, 53vw, 240px); }
+  .device-laptop { width: calc(100% - 36px); height: 82%; }
+  .device-phone { display: none; }
+
   .ideal-card ul { grid-template-columns: 1fr; }
 
   .footer-inner { flex-direction: column; text-align: center; }
@@ -1103,6 +1107,9 @@ footer {
   .hero-stats { flex-wrap: wrap; }
   .projeto-actions { align-items: stretch; flex-direction: column; }
   .projeto-actions a { width: 100%; }
+  .projeto-tag { margin-right: 18px; margin-left: 18px; }
+  .projeto-info { padding-right: 18px; padding-left: 18px; }
+  .projeto-actions { margin-right: 18px; margin-left: 18px; }
 }
 
 /* ======= NAV SCROLLED ======= */
